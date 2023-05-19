@@ -5,15 +5,15 @@
 
 ## Technologies Used
 
-* _C#_
-* _.NET SDK_
-* _EF Core_
-* _Razor_
-* _Bootstrap_
-* _CSS_
-* _HTML_
-* _MySQL_
-* _MySQL Workbench_
+💻 _C#_
+🤖 _.NET SDK_
+💾 _EF Core_
+🪒 _Razor_
+🥾 _Bootstrap_
+✨ _CSS_
+#️⃣ _HTML_
+🔐⛓🖇 _MySQL_
+🧰 _MySQL Workbench_
 
 
 
