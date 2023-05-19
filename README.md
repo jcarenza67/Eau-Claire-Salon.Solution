@@ -49,6 +49,8 @@ _A Web application for a salon to manage stylists and clients of stylists_
 
 ## Setting up a MySQL Database
 
+![image](assets/1ToMany.png)
+
 * _Download MySQL Workbench [Here](https://dev.mysql.com/downloads/workbench/)_
 * _Open MySQL Workbench and enter your password_
 * _Go to the Navigator > Administration window and select Data Import/Restore_
