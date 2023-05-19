@@ -2,6 +2,30 @@
   Layout = "_Layout";
 }
 
-<h1>Eau Claires Salon Management App!</h1>
-<h3><a href='/stylists'>View Stylists</a></h3>
-<h3><a href='/clients'>View Clients</a></h3>
+@{
+    Layout = "_Layout";
+}
+
+<div class="container text-center">
+    <h1 class="display-4">Eau Claires Salon Management App!</h1>
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">View Stylists</h3>
+                    <p class="card-text">Explore our talented team of stylists and their specialties.</p>
+                    <a href="/stylists" class="btn btn-primary">Go to Stylists</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="card-title">View Clients</h3>
+                    <p class="card-text">Browse through our list of clients and their details.</p>
+                    <a href="/clients" class="btn btn-primary">Go to Clients</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

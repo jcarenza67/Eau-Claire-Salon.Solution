@@ -5,29 +5,38 @@
 @model HairSalon.Models.Stylist
 @using HairSalon.Models
 
-<h2>Stylist Details</h2>
-<hr />
-<h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)<h3>
-<h3>@Html.DisplayNameFor(model => model.Phone): @Html.DisplayFor(model => model.Phone)<h3>
-<h3>@Html.DisplayNameFor(model => model.Email): @Html.DisplayFor(model => model.Email)<h3>
-<h3>@Html.DisplayNameFor(model => model.Specialty): @Html.DisplayFor(model => model.Specialty)<h3>
+<div class="container">
+    <h2 class="display-4 mb-4">Stylist Details</h2>
+    <hr />
 
-@if (@Model.Clients.Count == 0)
-{
-  <h3>No clients have been added for this stylist yet!</h3>
-} 
-else
-{
-  <h3>Clients:</h3>
-  <ul>
-    @foreach (Client client in Model.Clients)
+    <div class="row">
+        <div class="col-md-6">
+            <h3>@Html.DisplayNameFor(model => model.Name): <span class="text-muted">@Html.DisplayFor(model => model.Name)</span></h3>
+            <h3>@Html.DisplayNameFor(model => model.Phone): <span class="text-muted">@Html.DisplayFor(model => model.Phone)</span></h3>
+            <h3>@Html.DisplayNameFor(model => model.Email): <span class="text-muted">@Html.DisplayFor(model => model.Email)</span></h3>
+            <h3>@Html.DisplayNameFor(model => model.Specialty): <span class="text-muted">@Html.DisplayFor(model => model.Specialty)</span></h3>
+        </div>
+    </div>
+
+    @if (@Model.Clients.Count == 0)
     {
-      <li>@Html.ActionLink($"{client.Description}", "Details", "Clients", new { id = client.ClientId })</li>
+        <div class="alert alert-info mt-4">No clients have been added for this stylist yet!</div>
     }
-  </ul>
-}
+    else
+    {
+        <h3 class="mt-4">Clients:</h3>
+        <ul class="list-group">
+            @foreach (Client client in Model.Clients)
+            {
+                <li class="list-group-item">@Html.ActionLink(client.Description, "Details", "Clients", new { id = client.ClientId }, new { @class = "text-decoration-none" })</li>
+            }
+        </ul>
+    }
 
-<p>@Html.ActionLink("Edit Stylist", "Edit", new { id = Model.StylistId })</p>
-<p>@Html.ActionLink("Add a new Client", "Create", "Clients")</p>
-<p>@Html.ActionLink("Delete Stylist", "Delete", new { id = Model.StylistId })</p>
-<p>@Html.ActionLink("Back to list", "Index")</p>
+    <div class="text-center mt-4">
+      <p>@Html.ActionLink("Edit Stylist", "Edit", new { id = Model.StylistId })</p>
+      <p>@Html.ActionLink("Add a new Client", "Create", "Clients")</p>
+      <p>@Html.ActionLink("Delete Stylist", "Delete", new { id = Model.StylistId })</p>
+      <p>@Html.ActionLink("Back to list", "Index")</p>
+    </div>
+</div>

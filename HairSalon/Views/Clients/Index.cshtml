@@ -4,7 +4,14 @@
 
 @using HairSalon.Models;
 
-<h1>Clients</h1>
+<h1>Stylist Search</h1>
+
+<form method="get" action="@Url.Action("Index")">
+    <div class="input-group mb-3">
+        <input type="text" name="search" class="form-control" placeholder="Search stylists...">
+        <button type="submit" class="btn btn-primary">Search</button>
+    </div>
+</form>
 
 @if (@Model.Count == 0)
 {
