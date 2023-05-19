@@ -1,7 +1,7 @@
-# (Eau Claire's Salon)
+# Eau Claire's Salon
 
 
-#### By (Joseph Wilfong)
+#### By Joseph Wilfong
 
 ## Technologies Used
 
