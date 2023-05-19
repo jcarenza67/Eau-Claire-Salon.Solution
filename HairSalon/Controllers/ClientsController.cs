@@ -32,21 +32,23 @@ using System;
     [HttpPost]
     public ActionResult Create(Client client)
     {
-      try
+      if (ModelState.IsValid)
       {
-        if (client.StylistId == 0)
+        try
         {
+          _db.Clients.Add(client);
+          _db.SaveChanges();
           return RedirectToAction("Index");
         }
-        _db.Clients.Add(client);
-        _db.SaveChanges();
-        return RedirectToAction("Index");
+        catch (Exception)
+        {
+          
+          ModelState.AddModelError("", "An error occurred while saving. Please try again.");
+        }
       }
-      catch (Exception ex)
-      {
-        ModelState.AddModelError("", "Unable to save changes. Try again");
-        return View(client);
-      }
+
+      ViewBag.StylistId = new SelectList(_db.Stylists, "StylistId", "Name");
+      return View(client);
     }
 
     public ActionResult Details(int id)
@@ -62,7 +64,7 @@ using System;
         }
         return View(thisClient);
       }
-      catch (Exception ex)
+      catch (Exception)
       {
         return NotFound();
       }
@@ -87,7 +89,7 @@ using System;
           return RedirectToAction("Index");
         }
       }
-      catch (Exception ex)
+      catch (Exception)
       {
         ModelState.AddModelError("", "Unable to save changes. Try again");
       }
@@ -110,7 +112,7 @@ using System;
         _db.SaveChanges();
         return RedirectToAction("Index");
       }
-      catch (Exception ex)
+      catch (Exception)
       {
         return RedirectToAction("Delete", new { id = id, saveChangesError = true });
       }

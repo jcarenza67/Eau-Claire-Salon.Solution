@@ -13,16 +13,15 @@
   @Html.HiddenFor(model => model.ClientId)
 
   @Html.LabelFor(model => model.Name)
-  @Html.EditorFor(model => model.Name)
-  @Html.ValidationMessageFor(model => model.Name)
+  <input type="text" id="Name" name="Name" value="@Model.Name" required>
+
 
   @Html.LabelFor(model => model.Email)
-  @Html.EditorFor(model => model.Email)
-  @Html.ValidationMessageFor(model => model.Email)
+  <input type="text" id="Email" name="Email" value="@Model.Email" required>
 
   @Html.LabelFor(model => model.Phone)
-  @Html.EditorFor(model => model.Phone)
-  @Html.ValidationMessageFor(model => model.Phone)
+  <input type="text" id="Phone" name="Phone" value="@Model.Phone" required>
+
 
   @Html.LabelFor(model => model.Description)
   @Html.EditorFor(model => model.Description)

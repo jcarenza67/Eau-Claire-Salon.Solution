@@ -39,7 +39,7 @@ namespace HairSalon.Controllers
           return RedirectToAction("Index");
         }
       }
-      catch (Exception ex)
+      catch (Exception)
       {
         ModelState.AddModelError("", "Unable to save changes. Try again");
       }
@@ -59,7 +59,7 @@ namespace HairSalon.Controllers
         }
         return View(thisStylist);
       }
-      catch (Exception ex)
+      catch (Exception)
       {
         return NotFound();
       }
@@ -83,7 +83,7 @@ namespace HairSalon.Controllers
           return RedirectToAction("Index");
         }
       }
-      catch (Exception ex)
+      catch (Exception)
       {
         ModelState.AddModelError("", "Unable to save changes. Try again");
       }
@@ -106,7 +106,7 @@ namespace HairSalon.Controllers
         _db.SaveChanges();
         return RedirectToAction("Index");
       }
-      catch (Exception ex)
+      catch (Exception)
       {
         return RedirectToAction("Delete", new { id = id, saveChangesError = true });
       }
