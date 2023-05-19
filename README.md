@@ -40,8 +40,7 @@ _A Web application for a salon to manage stylists and clients of stylists_
 
 ## Setup/Installation Requirements
 
-* _Click the link provided above_
-* _Click the green dropdown button that says "Code"_
+* _Click the green dropdown button above that says "Code"_
 * _Copy the repository HTTPS, clone it to your Desktop directory by typing ***git clone***, paste the copied URL right after **clone**, and then press enter_
 * _Open the file in your preferred code editor_
 * _Make sure the following files are in your .gitignore file:_
