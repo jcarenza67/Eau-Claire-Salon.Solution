@@ -2,7 +2,10 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  background-image: url('../assets/HairSalon.jpg');
+  background-size: cover;
 }
+
 .content {
   flex: 1;
 }
