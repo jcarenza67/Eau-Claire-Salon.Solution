@@ -14,18 +14,22 @@
 
   @Html.LabelFor(model => model.Name)
   @Html.EditorFor(model => model.Name)
+  @Html.ValidationMessageFor(model => model.Name)
 
   @Html.LabelFor(model => model.Email)
   @Html.EditorFor(model => model.Email)
+  @Html.ValidationMessageFor(model => model.Email)
 
   @Html.LabelFor(model => model.Phone)
   @Html.EditorFor(model => model.Phone)
+  @Html.ValidationMessageFor(model => model.Phone)
 
   @Html.LabelFor(model => model.Description)
   @Html.EditorFor(model => model.Description)
 
   @Html.LabelFor(model => model.Stylist)
-  @Html.DropDownList("StylistId")
+  @Html.DropDownListFor(model => model.StylistId, (SelectList)ViewBag.StylistId)
+  @Html.ValidationMessageFor(model => model.StylistId)
 
   <input type="submit" value="Save" class="btn btn-primary btn-sm" />
 }

@@ -13,18 +13,22 @@
 {
   @Html.LabelFor(model => model.Name)
   @Html.TextBoxFor(model => model.Name)
+  @Html.ValidationMessageFor(model => model.Name)
 
   @Html.LabelFor(model => model.Description)
   @Html.TextBoxFor(model => model.Description)
 
   @Html.LabelFor(model => model.Email)
   @Html.TextBoxFor(model => model.Email)
+  @Html.ValidationMessageFor(model => model.Email)
 
   @Html.LabelFor(model => model.Phone)
   @Html.TextBoxFor(model => model.Phone)
+  @Html.ValidationMessageFor(model => model.Phone)
 
   @Html.LabelFor(model => model.Stylist)
-  @Html.DropDownList("StylistId")
+  @Html.DropDownListFor(model => model.StylistId, (SelectList)ViewBag.StylistId)
+  @Html.ValidationMessageFor(model => model.StylistId)
 
   <input type="submit" value="Add new client" class="btn btn-primary btn-sm" />
 }
