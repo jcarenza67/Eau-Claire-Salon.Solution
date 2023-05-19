@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using HairSalon.Models;
 using System.Collections.Generic;
 using System.Linq;
+using System;
 
   namespace HairSalon.Controllers
 {
@@ -31,21 +32,40 @@ using System.Linq;
     [HttpPost]
     public ActionResult Create(Client client)
     {
-      if (client.StylistId == 0)
+      try
       {
+        if (client.StylistId == 0)
+        {
+          return RedirectToAction("Index");
+        }
+        _db.Clients.Add(client);
+        _db.SaveChanges();
         return RedirectToAction("Index");
       }
-      _db.Clients.Add(client);
-      _db.SaveChanges();
-      return RedirectToAction("Index");
+      catch (Exception ex)
+      {
+        ModelState.AddModelError("", "Unable to save changes. Try again");
+        return View(client);
+      }
     }
 
     public ActionResult Details(int id)
     {
-      Client thisClient = _db.Clients
-                                      .Include(client => client.Stylist)      
-                                      .FirstOrDefault(client => client.StylistId == id);
-      return View(thisClient);
+      try
+      {
+        Client thisClient = _db.Clients
+                                .Include(client => client.Stylist)      
+                                .FirstOrDefault(client => client.ClientId == id);
+        if (thisClient == null)
+        {
+          return NotFound();
+        }
+        return View(thisClient);
+      }
+      catch (Exception ex)
+      {
+        return NotFound();
+      }
     }
 
     public ActionResult Edit(int id)
@@ -58,9 +78,20 @@ using System.Linq;
     [HttpPost]
     public ActionResult Edit(Client client)
     {
-      _db.Clients.Update(client);
-      _db.SaveChanges();
-      return RedirectToAction("Index");
+      try
+      {
+        if (ModelState.IsValid)
+        {
+          _db.Clients.Update(client);
+          _db.SaveChanges();
+          return RedirectToAction("Index");
+        }
+      }
+      catch (Exception ex)
+      {
+        ModelState.AddModelError("", "Unable to save changes. Try again");
+      }
+      return View(client);
     }
 
     public ActionResult Delete(int id)
@@ -72,10 +103,17 @@ using System.Linq;
     [HttpPost, ActionName("Delete")]
     public ActionResult DeleteConfirmed(int id)
     {
-      Client thisClient = _db.Clients.FirstOrDefault(client => client.ClientId == id);
-      _db.Clients.Remove(thisClient);
-      _db.SaveChanges();
-      return RedirectToAction("Index");
+      try
+      {
+        Client thisClient = _db.Clients.FirstOrDefault(client => client.ClientId == id);
+        _db.Clients.Remove(thisClient);
+        _db.SaveChanges();
+        return RedirectToAction("Index");
+      }
+      catch (Exception ex)
+      {
+        return RedirectToAction("Delete", new { id = id, saveChangesError = true });
+      }
     }
   }
 }

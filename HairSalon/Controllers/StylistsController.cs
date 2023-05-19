@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using HairSalon.Models;
 using System.Collections.Generic;
 using System.Linq;
+using System;
 
 namespace HairSalon.Controllers
 {
@@ -29,17 +30,39 @@ namespace HairSalon.Controllers
     [HttpPost]
     public ActionResult Create(Stylist stylist)
     {
-      _db.Stylists.Add(stylist);
-      _db.SaveChanges();
-      return RedirectToAction("Index");
+      try
+      {
+        if (ModelState.IsValid)
+        {
+          _db.Stylists.Add(stylist);
+          _db.SaveChanges();
+          return RedirectToAction("Index");
+        }
+      }
+      catch (Exception ex)
+      {
+        ModelState.AddModelError("", "Unable to save changes. Try again");
+      }
+      return View(stylist);
     }
 
     public ActionResult Details(int id)
     {
-      Stylist thisStylist = _db.Stylists
-                                .Include(stylist => stylist.Clients)
-                                .FirstOrDefault(stylist => stylist.StylistId == id);
-      return View(thisStylist);
+      try
+      {
+        Stylist thisStylist = _db.Stylists
+                                  .Include(stylist => stylist.Clients)
+                                  .FirstOrDefault(stylist => stylist.StylistId == id);
+        if (thisStylist == null)
+        {
+          return NotFound();
+        }
+        return View(thisStylist);
+      }
+      catch (Exception ex)
+      {
+        return NotFound();
+      }
     }
 
     public ActionResult Edit(int id)
@@ -51,9 +74,20 @@ namespace HairSalon.Controllers
     [HttpPost]
     public ActionResult Edit(Stylist stylist)
     {
-      _db.Stylists.Update(stylist);
-      _db.SaveChanges();
-      return RedirectToAction("Index");
+      try
+      {
+        if (ModelState.IsValid)
+        {
+          _db.Stylists.Update(stylist);
+          _db.SaveChanges();
+          return RedirectToAction("Index");
+        }
+      }
+      catch (Exception ex)
+      {
+        ModelState.AddModelError("", "Unable to save changes. Try again");
+      }
+      return View(stylist);
     }
 
     public ActionResult Delete(int id)
@@ -65,10 +99,17 @@ namespace HairSalon.Controllers
     [HttpPost, ActionName("Delete")]
     public ActionResult DeleteConfirmed(int id)
     {
-      Stylist thisStylist = _db.Stylists.FirstOrDefault(stylist => stylist.StylistId == id);
-      _db.Stylists.Remove(thisStylist);
-      _db.SaveChanges();
-      return RedirectToAction("Index");
+      try
+      {
+        Stylist thisStylist = _db.Stylists.FirstOrDefault(stylist => stylist.StylistId == id);
+        _db.Stylists.Remove(thisStylist);
+        _db.SaveChanges();
+        return RedirectToAction("Index");
+      }
+      catch (Exception ex)
+      {
+        return RedirectToAction("Delete", new { id = id, saveChangesError = true });
+      }
     }
   }
 }
