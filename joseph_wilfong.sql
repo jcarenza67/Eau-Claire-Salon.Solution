@@ -40,7 +40,7 @@ DROP TABLE IF EXISTS `stylists`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `stylists` (
   `StylistId` int NOT NULL AUTO_INCREMENT,
-  `StylistName` varchar(255) DEFAULT NULL,
+  `Name` varchar(255) DEFAULT NULL,
   `Details` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`StylistId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -55,4 +55,4 @@ CREATE TABLE `stylists` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-05-19  9:31:48
+-- Dump completed on 2023-05-19  9:51:58
