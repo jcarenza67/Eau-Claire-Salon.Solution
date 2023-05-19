@@ -11,7 +11,7 @@ using System.Linq;
   {
     private readonly HairSalonContext _db;
 
-    public RestaurantsController(HairSalonContext db)
+    public ClientsController(HairSalonContext db)
     {
       _db = db;
     }
@@ -24,18 +24,18 @@ using System.Linq;
 
     public ActionResult Create()
     {
-      ViewBag.StylistId = new SelectList(_db.Cuisines, "StylistId", "Name");
+      ViewBag.StylistId = new SelectList(_db.Stylists, "StylistId", "Name");
       return View();
     }
 
     [HttpPost]
     public ActionResult Create(Client client)
     {
-      if (restaurant.StylistId == 0)
+      if (client.StylistId == 0)
       {
         return RedirectToAction("Index");
       }
-      _db.Restaurants.Add(client);
+      _db.Clients.Add(client);
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
