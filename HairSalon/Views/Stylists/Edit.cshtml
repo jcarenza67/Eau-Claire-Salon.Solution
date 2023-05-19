@@ -1,29 +1,36 @@
 @{
-  Layout = "_Layout";
+    Layout = "_Layout";
 }
 
 @model HairSalon.Models.Stylist
 
-<h2>Edit</h2>
-
-<h4>Edit this stylist: @Html.DisplayFor(model => model.Name)</h4>
+<h3>Edit this stylist: @Html.DisplayFor(model => model.Name)</h3>
 
 @using (Html.BeginForm())
 {
-  @Html.HiddenFor(model => model.StylistId)
+    @Html.HiddenFor(model => model.StylistId)
 
-  @Html.LabelFor(model => model.Name)
-  @Html.EditorFor(model => model.Name)
+    <div class="form-group">
+        @Html.LabelFor(model => model.Name)
+        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+    </div>
 
-  @Html.LabelFor(model => model.Phone)
-  @Html.EditorFor(model => model.Phone)
+    <div class="form-group">
+        @Html.LabelFor(model => model.Phone)
+        @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control" } })
+    </div>
 
-  @Html.LabelFor(model => model.Email)
-  @Html.EditorFor(model => model.Email)
+    <div class="form-group">
+        @Html.LabelFor(model => model.Email)
+        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+    </div>
 
-  @Html.LabelFor(model => model.Specialty)
-  @Html.EditorFor(model => model.Specialty)
-
-  <input type="submit" value="Save" class="btn btn-primary btn-sm"  />
+    <div class="form-group">
+        @Html.LabelFor(model => model.Specialty)
+        @Html.EditorFor(model => model.Specialty, new { htmlAttributes = new { @class = "form-control" } })
+    </div>
+    <br />
+    <input type="submit" value="Save" class="btn btn-primary btn-sm" />
 }
-<p>@Html.ActionLink("Back to list", "Index")</p>
+<br />
+<p>@Html.ActionLink("Back to list", "Index", null, new { @class = "btn btn-secondary btn-sm" })</p>

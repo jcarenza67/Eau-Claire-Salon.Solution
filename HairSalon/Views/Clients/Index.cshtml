@@ -4,28 +4,39 @@
 
 @using HairSalon.Models;
 
-<h1>Stylist Search</h1>
+@* <h1>Stylist Search</h1> *@
 
-<form method="get" action="@Url.Action("Index")">
+@* <form method="get" action="@Url.Action("Index")">
     <div class="input-group mb-3">
         <input type="text" name="search" class="form-control" placeholder="Search stylists...">
         <button type="submit" class="btn btn-primary">Search</button>
     </div>
-</form>
+</form> *@
 
-@if (@Model.Count == 0)
+<h1>Client List</h1>
+<br />
+@if (Model.Count == 0)
 {
-  <p>No clients yet!</p>
+    <p>No clients yet!</p>
 }
 else
 {
-  <ul>
-    @foreach (Client client in Model)
-    { 
-      <li>@Html.ActionLink($"{client.Name}", "Details", new {id = client.ClientId}) | @(client.Stylist != null ? @client.Stylist.Name : "No stylist assigned")</li>
-    }
-  </ul>
+    <ul class="list-group">
+        @foreach (Client client in Model)
+        {
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <div>
+                    @Html.ActionLink(client.Name, "Details", new { id = client.ClientId }, new { @class = "text-decoration-none" })
+                </div>
+                <div>
+                    <span class="badge bg-secondary">Stylist: @(client.Stylist != null ? client.Stylist.Name : "No stylist assigned")</span>
+                </div>
+            </li>
+        }
+    </ul>
 }
 
-<p>@Html.ActionLink("Add a new client", "Create")</p>
-<p>@Html.ActionLink("Home", "Index", "Home")</p>
+<div class="my-3">
+    <p>@Html.ActionLink("Add a new client", "Create", null, new { @class = "btn btn-primary" })</p>
+    <p>@Html.ActionLink("Home", "Index", "Home", null, new { @class = "btn btn-secondary" })</p>
+</div>

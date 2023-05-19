@@ -1,5 +1,5 @@
 @{
-  Layout = "_Layout";
+    Layout = "_Layout";
 }
 
 @model HairSalon.Models.Client
@@ -11,22 +11,33 @@
 
 @using (Html.BeginForm())
 {
-  @Html.LabelFor(model => model.Name)
-  @Html.TextBoxFor(model => model.Name, new {required = "required"})
-  
-  @Html.LabelFor(model => model.Description)
-  @Html.TextBoxFor(model => model.Description, new {required = "required"})
+    <div class="mb-3">
+        @Html.LabelFor(model => model.Name, new { @class = "form-label" })
+        @Html.TextBoxFor(model => model.Name, new { @class = "form-control", required = "required" })
+    </div>
 
-  @Html.LabelFor(model => model.Email)
-  @Html.TextBoxFor(model => model.Email, new {required = "required"})
-  
-  @Html.LabelFor(model => model.Phone)
-  @Html.TextBoxFor(model => model.Phone, new {required = "required"})
+    <div class="mb-3">
+        @Html.LabelFor(model => model.Description, new { @class = "form-label" })
+        @Html.TextBoxFor(model => model.Description, new { @class = "form-control", required = "required" })
+    </div>
 
-  @Html.LabelFor(model => model.Stylist)
-  @Html.DropDownListFor(model => model.StylistId, (SelectList)ViewBag.StylistId)
-  @Html.ValidationMessageFor(model => model.StylistId)
+    <div class="mb-3">
+        @Html.LabelFor(model => model.Email, new { @class = "form-label" })
+        @Html.TextBoxFor(model => model.Email, new { @class = "form-control", required = "required" })
+    </div>
 
-  <input type="submit" value="Add new client" class="btn btn-primary btn-sm" />
+    <div class="mb-3">
+        @Html.LabelFor(model => model.Phone, new { @class = "form-label" })
+        @Html.TextBoxFor(model => model.Phone, new { @class = "form-control", required = "required" })
+    </div>
+
+    <div class="mb-3">
+        @Html.LabelFor(model => model.Stylist, new { @class = "form-label" })
+        @Html.DropDownListFor(model => model.StylistId, (SelectList)ViewBag.StylistId, "Select a stylist", new { @class = "form-select" })
+        @Html.ValidationMessageFor(model => model.StylistId, "", new { @class = "invalid-feedback" })
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add new client</button>
 }
+
 <p>@Html.ActionLink("Show all items", "Index")</p>

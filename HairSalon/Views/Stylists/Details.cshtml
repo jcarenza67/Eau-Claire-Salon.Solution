@@ -28,7 +28,7 @@
         <ul class="list-group">
             @foreach (Client client in Model.Clients)
             {
-                <li class="list-group-item">@Html.ActionLink(client.Description, "Details", "Clients", new { id = client.ClientId }, new { @class = "text-decoration-none" })</li>
+                <li class="list-group-item">@Html.ActionLink(client.Name, "Details", "Clients", new { id = client.ClientId }, new { @class = "text-decoration-none" })</li>
             }
         </ul>
     }
