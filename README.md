@@ -35,7 +35,7 @@ _A Web application for a salon to manage stylists and clients of stylists_
 * _Make sure the following files are in your .gitignore file:_
 ***obj***
 ***bin***
-***appsettings.json***
+***appsettings.json***_
 * _Then ***git add/push*** the .gitignore file ***separately*** to your repository_
 * _Download ***.NET 6 SDK*** by following the directions from this link [Here](https://dotnet.microsoft.com/en-us/download/dotnet/6.0), this will also allow you to use **C#**_
 * _**Open the file**. This will launch an installer which will walk you through installation steps. ***Use default settings***._
