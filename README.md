@@ -1,4 +1,4 @@
-# Eau Claire's Salon
+# Eau Claire's Salon 💇🏼‍♀️
 
 
 #### By Joseph Wilfong
