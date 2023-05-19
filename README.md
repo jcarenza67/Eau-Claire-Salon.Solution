@@ -1,22 +1,18 @@
 # Eau Claire's Salon 💇🏼‍♀️
 
-
 #### By Joseph Wilfong
 
 ## Technologies Used
 
-💻 _C#_
-🤖 _.NET SDK_
-💾 _EF Core_
-🪒 _Razor_
-🥾 _Bootstrap_
-✨ _CSS_
-#️⃣ _HTML_
-🔐⛓🖇 _MySQL_
-🧰 _MySQL Workbench_
-
-
-
+* 💻 ***C#***
+* 🤖 ***.NET SDK***
+* 💾 ***EF Core***
+* 🪒 ***Razor***
+* 🥾 ***Bootstrap***
+* ✨ ***CSS***
+* #️⃣ ***HTML***
+* 🔐⛓🖇 ***MySQL***
+* 🧰 ***MySQL Workbench***
 
 ## Description
 

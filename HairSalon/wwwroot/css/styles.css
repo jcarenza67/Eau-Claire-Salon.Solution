@@ -1,0 +1,31 @@
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.content {
+  flex: 1;
+}
+.footer {
+  background-color: #f8f9fa;
+  padding: 20px;
+}
+
+.container {
+  margin-top: 1rem;
+}
+
+.navbar {
+  background-color: #333;
+}
+
+.navbar-nav .nav-link {
+  color: #fff;
+}
+
+.footer {
+  background-color: #f8f9fa;
+  text-align: center;
+  font-size:14px;
+  color: #6c757d;
+}
