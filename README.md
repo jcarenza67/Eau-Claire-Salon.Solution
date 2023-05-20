@@ -45,7 +45,7 @@ _A Web application for a salon to manage stylists and clients of stylists_
 
 ## Setting up a MySQL Database
 
-![image](https://github.com/jcarenza67/Eau-Claire-Salon.Solution/blob/main/HairSalon/assets/1ToMany.png)
+![image](https://github.com/jcarenza67/Eau-Claire-Salon.Solution/blob/main/HairSalon/wwwroot/assets/1ToMany.png)
 
 * _Download MySQL Workbench [Here](https://dev.mysql.com/downloads/workbench/)_
 * _Open MySQL Workbench and enter your password_
