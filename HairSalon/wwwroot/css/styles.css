@@ -5,6 +5,9 @@ body {
   background-image: url('/assets/HairSalon.jpg');
   background-size: cover;
   font-family: 'Dancing Script', cursive;
+  font-size: xx-large;
+  font-weight: bold;
+  color: #0040ff;
 }
 
 .content {
