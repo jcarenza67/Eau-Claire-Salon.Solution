@@ -1,5 +1,5 @@
 @{
-  Layout = "_Layout";
+    Layout = "_Layout";
 }
 
 @model HairSalon.Models.Stylist
@@ -31,12 +31,12 @@
                     @Html.TextBoxFor(model => model.Specialty, new { @class = "form-control", required = "required" })
                 </div>
                 <br />
-                <button type="submit" class="btn btn-primary">Add a new stylist</button>
+                <button type="submit" class="btn btn-primary btn-lg">Add a new stylist</button>
             }
         </div>
     </div>
 
     <div class="text-center mt-4">
-        @Html.ActionLink("Show all stylists", "Index", null, new { @class = "btn btn-secondary" })
+        <p>@Html.ActionLink("Show All Stylists", "Index", "Stylists", null, new { @class = "btn btn-primary btn-lg" })</p>
     </div>
 </div>

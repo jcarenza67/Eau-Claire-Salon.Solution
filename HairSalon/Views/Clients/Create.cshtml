@@ -4,10 +4,10 @@
 
 @model HairSalon.Models.Client
 
-<h4>Add a new client</h4>
+<h1 class="add-new">Add a new client</h1>
 
-<p><strong>NOTE:</strong> You need to have at least one Stylist before you can add a Client!</p>
-<p>Go to @Html.ActionLink("this page", "Create", "Stylist") to create a stylist.</p>
+<p class="note"><strong>NOTE:</strong> You need to have at least one Stylist before you can add a Client!</p>
+<p>Go to @Html.ActionLink("this page", "Create", "Stylists") to create a stylist.</p>
 
 @using (Html.BeginForm())
 {
@@ -39,5 +39,5 @@
 
     <button type="submit" class="btn btn-primary">Add new client</button>
 }
-
-<p>@Html.ActionLink("Show all items", "Index")</p>
+<br />
+<p>@Html.ActionLink("Show All Clients", "Index", "Clients", null, new { @class = "btn btn-primary" })</p>
